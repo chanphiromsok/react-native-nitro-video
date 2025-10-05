@@ -1,0 +1,17 @@
+{
+  "cxxNamespace": ["nitrovideo"],
+  "ios": {
+    "iosModuleName": "NitroVideo"
+  },
+  "android": {
+    "androidNamespace": ["nitrovideo"],
+    "androidCxxLibName": "nitrovideo"
+  },
+  "autolinking": {
+    "NitroVideo": {
+      "swift": "HybridNitroVideo",
+      "kotlin": "HybridNitroVideo"
+    }
+  },
+  "ignorePaths": ["node_modules"]
+}
