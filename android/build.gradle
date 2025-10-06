@@ -24,7 +24,7 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply from: '../nitrogen/generated/android/nitrovideo+autolinking.gradle'
 
-apply plugin: "com.facebook.react"
+// apply plugin: "com.facebook.react"
 
 def getExtOrIntegerDefault(name) {
   return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties["NitroVideo_" + name]).toInteger()
@@ -120,9 +120,15 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
+def media3_version = getExtOrDefault("media3Version")
 
 dependencies {
   implementation "com.facebook.react:react-android"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation project(":react-native-nitro-modules")
+  
+  // Media3 ExoPlayer for advanced video playback
+  implementation "androidx.media3:media3-exoplayer:$media3_version"
+  implementation "androidx.media3:media3-exoplayer-dash:$media3_version"
+  implementation "androidx.media3:media3-ui:$media3_version"
 }
