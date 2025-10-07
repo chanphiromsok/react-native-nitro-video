@@ -9,7 +9,7 @@ const videoUrl =
 export default function App() {
   // Single player instance - created only once using lazy initialization
   const [player] = useState(() => createNitroPlayer(videoUrl));
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, _setIsPlaying] = useState(false);
 
   useEffect(() => {
     // Cleanup on unmount
@@ -20,17 +20,17 @@ export default function App() {
 
   const handlePlay = () => {
     player.play();
-    setIsPlaying(true);
+    // setIsPlaying(true);
   };
 
   const handlePause = () => {
     player.pause();
-    setIsPlaying(false);
+    // setIsPlaying(false);
   };
 
   const handleStop = () => {
     player.stop();
-    setIsPlaying(false);
+    // setIsPlaying(false);
   };
 
   return (
@@ -52,12 +52,8 @@ export default function App() {
           </Text>
 
           <View style={styles.buttonRow}>
-            <Button title="▶️ Play" onPress={handlePlay} disabled={isPlaying} />
-            <Button
-              title="⏸️ Pause"
-              onPress={handlePause}
-              disabled={!isPlaying}
-            />
+            <Button title="▶️ Play" onPress={handlePlay} />
+            <Button title="⏸️ Pause" onPress={handlePause} />
             <Button title="⏹️ Stop" onPress={handleStop} />
           </View>
 

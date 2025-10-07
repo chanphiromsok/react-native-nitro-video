@@ -5,6 +5,7 @@ import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.model.ReactModuleInfoProvider
 import com.facebook.react.uimanager.ViewManager
+import com.margelo.nitro.nitrovideo.views.HybridVideoViewManager
 
 class NitroVideoPackage : BaseReactPackage() {
     override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
@@ -17,7 +18,7 @@ class NitroVideoPackage : BaseReactPackage() {
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
         val viewManager = ArrayList<ViewManager<*,*>>();
-        viewManager.add(VideoViewManager())
+        viewManager.add(HybridVideoViewManager())
         return viewManager
     }
 

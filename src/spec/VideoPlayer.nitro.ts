@@ -4,7 +4,7 @@ export interface VideoPlayerSourceBase {
   /**
    * The URI of the asset.
    */
-  readonly uri: string;
+  uri: string | undefined;
 }
 
 export interface VideoPlayer
