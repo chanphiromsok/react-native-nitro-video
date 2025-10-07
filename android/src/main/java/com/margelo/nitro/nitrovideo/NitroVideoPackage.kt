@@ -1,14 +1,13 @@
 package com.margelo.nitro.nitrovideo
 
-import com.facebook.react.TurboReactPackage
+import com.facebook.react.BaseReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.module.model.ReactModuleInfoProvider
 import com.facebook.react.uimanager.ViewManager
+import com.margelo.nitro.nitrovideo.views.HybridVideoViewManager
 
-import nitrovideo.views.HybridNitroVideoManager
-
-class NitroVideoPackage : TurboReactPackage() {
+class NitroVideoPackage : BaseReactPackage() {
     override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
         return null
     }
@@ -18,7 +17,7 @@ class NitroVideoPackage : TurboReactPackage() {
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-        return listOf(HybridNitroVideoManager())
+        return listOf(HybridVideoViewManager())
     }
 
     companion object {

@@ -1,10 +1,19 @@
+import { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { NitroVideoView } from 'react-native-nitro-video';
+import { VideoView, createNitroPlayer } from 'react-native-nitro-video';
 
+const player = createNitroPlayer(
+  'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4'
+);
 export default function App() {
+  useEffect(() => {
+    return () => {
+      player.release();
+    };
+  }, []);
   return (
     <View style={styles.container}>
-      <NitroVideoView color="#32a852" style={styles.box} />
+      <VideoView player={player} style={styles.box} />
     </View>
   );
 }

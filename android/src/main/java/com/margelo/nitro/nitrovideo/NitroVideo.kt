@@ -1,23 +1,14 @@
 package com.margelo.nitro.nitrovideo
 
-import android.view.View
 import com.facebook.proguard.annotations.DoNotStrip
-import com.facebook.react.uimanager.ThemedReactContext
-import androidx.core.graphics.toColorInt
+import com.margelo.nitro.NitroModules
 
 @DoNotStrip
-class HybridNitroVideo(val context: ThemedReactContext) : HybridNitroVideoSpec() {
+class NitroVideo : HybridNitroVideoSpec() {
 
-  // View
-  override val view: View = View(context)
-
-  // Props
-  private var _color = "#000"
-  override var color: String
-      get() = _color
-      set(value) {
-          _color = value
-          val color = value.toColorInt()
-          view.setBackgroundColor(color)
-      }
+  override fun createPlayer(uri: String): HybridVideoPlayerSpec {
+    val context = NitroModules.applicationContext
+      ?: throw IllegalStateException("NitroModules application context is not available")
+    return HybridVideoPlayer(uri, context)
+  }
 }

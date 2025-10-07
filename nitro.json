@@ -1,17 +1,31 @@
 {
-  "cxxNamespace": ["nitrovideo"],
+  "cxxNamespace": [
+    "nitrovideo"
+  ],
   "ios": {
     "iosModuleName": "NitroVideo"
   },
   "android": {
-    "androidNamespace": ["nitrovideo"],
+    "androidNamespace": [
+      "nitrovideo"
+    ],
     "androidCxxLibName": "nitrovideo"
   },
   "autolinking": {
     "NitroVideo": {
-      "swift": "HybridNitroVideo",
-      "kotlin": "HybridNitroVideo"
+      "swift": "NitroVideo",
+      "kotlin": "NitroVideo"
+    },
+    "VideoView": {
+      "swift": "HybridVideoView",
+      "kotlin": "HybridVideoView"
+    },
+    "VideoPlayer": {
+      "swift": "HybridVideoPlayer",
+      "kotlin": "HybridVideoPlayer"
     }
   },
-  "ignorePaths": ["node_modules"]
+  "ignorePaths": [
+    "node_modules"
+  ]
 }

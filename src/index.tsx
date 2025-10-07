@@ -1,11 +1,15 @@
-import { getHostComponent } from 'react-native-nitro-modules';
-const NitroVideoConfig = require('../nitrogen/generated/shared/json/NitroVideoConfig.json');
-import type {
-  NitroVideoMethods,
-  NitroVideoProps,
-} from './NitroVideo.nitro';
+import { getHostComponent, NitroModules } from 'react-native-nitro-modules';
+import type { NitroVideo } from './spec/NitroPlayer.nitro';
+import type { VideoPlayer } from './spec/VideoPlayer.nitro';
+import type { VideoViewMethods, VideoViewProps } from './spec/VideoView.nitro';
 
-export const NitroVideoView = getHostComponent<
-  NitroVideoProps,
-  NitroVideoMethods
->('NitroVideo', () => NitroVideoConfig);
+const VideoViewConfig = require('../nitrogen/generated/shared/json/VideoViewConfig.json');
+
+export const VideoView = getHostComponent<VideoViewProps, VideoViewMethods>(
+  'VideoView',
+  () => VideoViewConfig
+);
+const module = NitroModules.createHybridObject<NitroVideo>('NitroVideo');
+export function createNitroPlayer(uri: string): VideoPlayer {
+  return module.createPlayer(uri);
+}
